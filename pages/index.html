@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <title>index</title>
+   
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+</head>
+
+<body>
+    <div id="app-box">
+			<div>ces</div>
+			<input type="tel" placeholder="姓名" id="name">
+			<input type="tel" placeholder="密码" id="psw">
+		<button>提交</button>
+    </div>
+  	<script>
+		var mobileNo,
+				psw;
+		$('#name').bind('input onpropertychange', function(e) {
+			name = e.target.value;
+			// if(!/^((1[3,5,8][0-9])|(14[5,7])|(17[0,6,7,8])|(19[7]))\d{8}$/.test(mobileNo)) {
+			// 	console.log('请输入正确的手机号')
+			// }
+		});
+		$('#psw').bind('input onpropertychange', function(e) {
+			psw = e.target.value;
+		
+		});
+		$('button').click(function() {
+			$.ajax({
+				url:'http://127.0.0.1:4000/signin',
+				data:{
+					name : name,
+					password:psw
+				},
+				type:'post',
+				success:function(e){
+					if(data.error) reutrn;
+					window.location.href = './test.html';
+				}
+			})
+		})
+  	</script>
+</body>
+
+</html>
